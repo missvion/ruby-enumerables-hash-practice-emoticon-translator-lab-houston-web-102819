@@ -1,15 +1,15 @@
 # require modules here
-require "yaml"
-require "pry"
+require 'yaml'
+require 'pry'
 
 def load_library(file_path)
   library = YAML.load_file(lib/emoticons.yml)
-  result = {"get_meaning" => {}, "get_emoticon" => {}}
+  emoticon_library = {"get_meaning" => {}, "get_emoticon" => {}}
   library.each do |meaning, emoticons|
-    result["get_meaning"][emoticons[1]] = meaning
-    result["get_emoticon"][emoticons[0]] = emoticons[1]
+    emoticon_library["get_meaning"][emoticons[1]] = meaning
+    emoticon_library["get_emoticon"][emoticons[0]] = emoticons[1]
   end
-  result
+ emoticon_library
 end
 
 
